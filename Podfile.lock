@@ -1,0 +1,17 @@
+PODS:
+  - BButton (4.0.2)
+  - Realm (2.7.0):
+    - Realm/Headers (= 2.7.0)
+  - Realm/Headers (2.7.0)
+
+DEPENDENCIES:
+  - BButton (~> 4.0.2)
+  - Realm (~> 2.7.0)
+
+SPEC CHECKSUMS:
+  BButton: ab0f2ed3b998ae73c5188b57d270d81e4a1eeb27
+  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
+
+PODFILE CHECKSUM: 78bc085de30eea57fab225d7e4f623f703280ce0
+
+COCOAPODS: 1.2.1

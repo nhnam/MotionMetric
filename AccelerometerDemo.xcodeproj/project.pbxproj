@@ -1,0 +1,473 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B41F8FB756A8A18377BC5BB /* Pods_AccelerometerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242717E0BA2A6AC5BC0751DD /* Pods_AccelerometerDemo.framework */; };
+		D822A0BB1ED9ACEE00CDD3C8 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D822A0BA1ED9ACEE00CDD3C8 /* ReportViewController.m */; };
+		D822A0BD1ED9AE1800CDD3C8 /* ScrollableGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D822A0BC1ED9AE1800CDD3C8 /* ScrollableGraphView.swift */; };
+		D822A0BF1ED9AE7B00CDD3C8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D822A0BE1ED9AE7B00CDD3C8 /* Accelerate.framework */; };
+		D848E7D41ED5832D002F53E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D848E7D31ED5832D002F53E8 /* main.m */; };
+		D848E7D71ED5832D002F53E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D848E7D61ED5832D002F53E8 /* AppDelegate.m */; };
+		D848E7DD1ED5832D002F53E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D848E7DB1ED5832D002F53E8 /* Main.storyboard */; };
+		D848E7DF1ED5832D002F53E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D848E7DE1ED5832D002F53E8 /* Assets.xcassets */; };
+		D848E7E21ED5832D002F53E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D848E7E01ED5832D002F53E8 /* LaunchScreen.storyboard */; };
+		D848E7EB1ED58A68002F53E8 /* GetStartedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D848E7EA1ED58A68002F53E8 /* GetStartedViewController.m */; };
+		D848E7EE1ED58A87002F53E8 /* TrackingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D848E7ED1ED58A87002F53E8 /* TrackingViewController.m */; };
+		D848E7F41ED59796002F53E8 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = D848E7F31ED59796002F53E8 /* AppController.m */; };
+		D848E7F61ED59C75002F53E8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D848E7F51ED59C75002F53E8 /* CoreMotion.framework */; };
+		D848E7F91ED5B1E4002F53E8 /* Acceleration.m in Sources */ = {isa = PBXBuildFile; fileRef = D848E7F81ED5B1E4002F53E8 /* Acceleration.m */; };
+		D849990B1ED9E3A300EBBEFB /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849990A1ED9E3A300EBBEFB /* Record.swift */; };
+		D849990D1EDA7B6300EBBEFB /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849990C1EDA7B6300EBBEFB /* GraphViewController.swift */; };
+		D84999101EDA854900EBBEFB /* NiceDate.m in Sources */ = {isa = PBXBuildFile; fileRef = D849990F1EDA854900EBBEFB /* NiceDate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		242717E0BA2A6AC5BC0751DD /* Pods_AccelerometerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccelerometerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86C8B04042C7C1E44B0C1F7F /* Pods-AccelerometerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccelerometerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AccelerometerDemo/Pods-AccelerometerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		94286D757FEFF8BBCA6A82BA /* Pods-AccelerometerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccelerometerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AccelerometerDemo/Pods-AccelerometerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		D822A0B21ED9A1E800CDD3C8 /* AccelerometerDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AccelerometerDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		D822A0B91ED9ACEE00CDD3C8 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
+		D822A0BA1ED9ACEE00CDD3C8 /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
+		D822A0BC1ED9AE1800CDD3C8 /* ScrollableGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollableGraphView.swift; sourceTree = "<group>"; };
+		D822A0BE1ED9AE7B00CDD3C8 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		D848E7CF1ED5832D002F53E8 /* AccelerometerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccelerometerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D848E7D31ED5832D002F53E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D848E7D51ED5832D002F53E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D848E7D61ED5832D002F53E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D848E7DC1ED5832D002F53E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D848E7DE1ED5832D002F53E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D848E7E11ED5832D002F53E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D848E7E31ED5832D002F53E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D848E7E91ED58A68002F53E8 /* GetStartedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetStartedViewController.h; sourceTree = "<group>"; };
+		D848E7EA1ED58A68002F53E8 /* GetStartedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetStartedViewController.m; sourceTree = "<group>"; };
+		D848E7EC1ED58A87002F53E8 /* TrackingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingViewController.h; sourceTree = "<group>"; };
+		D848E7ED1ED58A87002F53E8 /* TrackingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingViewController.m; sourceTree = "<group>"; };
+		D848E7F21ED59796002F53E8 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		D848E7F31ED59796002F53E8 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		D848E7F51ED59C75002F53E8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		D848E7F71ED5B1E4002F53E8 /* Acceleration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Acceleration.h; sourceTree = "<group>"; };
+		D848E7F81ED5B1E4002F53E8 /* Acceleration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Acceleration.m; sourceTree = "<group>"; };
+		D849990A1ED9E3A300EBBEFB /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		D849990C1EDA7B6300EBBEFB /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		D849990E1EDA854900EBBEFB /* NiceDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NiceDate.h; sourceTree = "<group>"; };
+		D849990F1EDA854900EBBEFB /* NiceDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NiceDate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D848E7CC1ED5832D002F53E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D822A0BF1ED9AE7B00CDD3C8 /* Accelerate.framework in Frameworks */,
+				D848E7F61ED59C75002F53E8 /* CoreMotion.framework in Frameworks */,
+				3B41F8FB756A8A18377BC5BB /* Pods_AccelerometerDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D848E7C61ED5832D002F53E8 = {
+			isa = PBXGroup;
+			children = (
+				D848E7D11ED5832D002F53E8 /* AccelerometerDemo */,
+				D848E7D01ED5832D002F53E8 /* Products */,
+				ED062FC1C341E259EBDED888 /* Pods */,
+				F506482B2AB2B264F0501A82 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D848E7D01ED5832D002F53E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D848E7CF1ED5832D002F53E8 /* AccelerometerDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D848E7D11ED5832D002F53E8 /* AccelerometerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				D848E7D51ED5832D002F53E8 /* AppDelegate.h */,
+				D848E7D61ED5832D002F53E8 /* AppDelegate.m */,
+				D848E7F21ED59796002F53E8 /* AppController.h */,
+				D848E7F31ED59796002F53E8 /* AppController.m */,
+				D848E7EC1ED58A87002F53E8 /* TrackingViewController.h */,
+				D848E7ED1ED58A87002F53E8 /* TrackingViewController.m */,
+				D848E7E91ED58A68002F53E8 /* GetStartedViewController.h */,
+				D848E7EA1ED58A68002F53E8 /* GetStartedViewController.m */,
+				D822A0B91ED9ACEE00CDD3C8 /* ReportViewController.h */,
+				D822A0BA1ED9ACEE00CDD3C8 /* ReportViewController.m */,
+				D848E7DB1ED5832D002F53E8 /* Main.storyboard */,
+				D848E7DE1ED5832D002F53E8 /* Assets.xcassets */,
+				D848E7E01ED5832D002F53E8 /* LaunchScreen.storyboard */,
+				D848E7E31ED5832D002F53E8 /* Info.plist */,
+				D848E7D21ED5832D002F53E8 /* Supporting Files */,
+				D848E7F71ED5B1E4002F53E8 /* Acceleration.h */,
+				D848E7F81ED5B1E4002F53E8 /* Acceleration.m */,
+				D849990E1EDA854900EBBEFB /* NiceDate.h */,
+				D849990F1EDA854900EBBEFB /* NiceDate.m */,
+				D822A0B21ED9A1E800CDD3C8 /* AccelerometerDemo-Bridging-Header.h */,
+				D822A0BC1ED9AE1800CDD3C8 /* ScrollableGraphView.swift */,
+				D849990C1EDA7B6300EBBEFB /* GraphViewController.swift */,
+				D849990A1ED9E3A300EBBEFB /* Record.swift */,
+			);
+			path = AccelerometerDemo;
+			sourceTree = "<group>";
+		};
+		D848E7D21ED5832D002F53E8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D848E7D31ED5832D002F53E8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ED062FC1C341E259EBDED888 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				86C8B04042C7C1E44B0C1F7F /* Pods-AccelerometerDemo.debug.xcconfig */,
+				94286D757FEFF8BBCA6A82BA /* Pods-AccelerometerDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F506482B2AB2B264F0501A82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D822A0BE1ED9AE7B00CDD3C8 /* Accelerate.framework */,
+				D848E7F51ED59C75002F53E8 /* CoreMotion.framework */,
+				242717E0BA2A6AC5BC0751DD /* Pods_AccelerometerDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D848E7CE1ED5832D002F53E8 /* AccelerometerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D848E7E61ED5832D002F53E8 /* Build configuration list for PBXNativeTarget "AccelerometerDemo" */;
+			buildPhases = (
+				51FC81A484920121D82DA15D /* [CP] Check Pods Manifest.lock */,
+				D848E7CB1ED5832D002F53E8 /* Sources */,
+				D848E7CC1ED5832D002F53E8 /* Frameworks */,
+				D848E7CD1ED5832D002F53E8 /* Resources */,
+				F619BDD5D4368AF94D43C231 /* [CP] Embed Pods Frameworks */,
+				35EC91967ABE234317551F7D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AccelerometerDemo;
+			productName = AccelerometerDemo;
+			productReference = D848E7CF1ED5832D002F53E8 /* AccelerometerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D848E7C71ED5832D002F53E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Benjamin;
+				TargetAttributes = {
+					D848E7CE1ED5832D002F53E8 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 7MD88PM2GZ;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D848E7CA1ED5832D002F53E8 /* Build configuration list for PBXProject "AccelerometerDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D848E7C61ED5832D002F53E8;
+			productRefGroup = D848E7D01ED5832D002F53E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D848E7CE1ED5832D002F53E8 /* AccelerometerDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D848E7CD1ED5832D002F53E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D848E7E21ED5832D002F53E8 /* LaunchScreen.storyboard in Resources */,
+				D848E7DF1ED5832D002F53E8 /* Assets.xcassets in Resources */,
+				D848E7DD1ED5832D002F53E8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		35EC91967ABE234317551F7D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AccelerometerDemo/Pods-AccelerometerDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		51FC81A484920121D82DA15D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F619BDD5D4368AF94D43C231 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AccelerometerDemo/Pods-AccelerometerDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D848E7CB1ED5832D002F53E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D848E7EE1ED58A87002F53E8 /* TrackingViewController.m in Sources */,
+				D849990D1EDA7B6300EBBEFB /* GraphViewController.swift in Sources */,
+				D848E7D71ED5832D002F53E8 /* AppDelegate.m in Sources */,
+				D849990B1ED9E3A300EBBEFB /* Record.swift in Sources */,
+				D84999101EDA854900EBBEFB /* NiceDate.m in Sources */,
+				D848E7F41ED59796002F53E8 /* AppController.m in Sources */,
+				D822A0BB1ED9ACEE00CDD3C8 /* ReportViewController.m in Sources */,
+				D822A0BD1ED9AE1800CDD3C8 /* ScrollableGraphView.swift in Sources */,
+				D848E7F91ED5B1E4002F53E8 /* Acceleration.m in Sources */,
+				D848E7D41ED5832D002F53E8 /* main.m in Sources */,
+				D848E7EB1ED58A68002F53E8 /* GetStartedViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D848E7DB1ED5832D002F53E8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D848E7DC1ED5832D002F53E8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D848E7E01ED5832D002F53E8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D848E7E11ED5832D002F53E8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D848E7E41ED5832D002F53E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_MODULE_NAME = AccelerometerDemo;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$AccelerometerDemo-Swift.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D848E7E51ED5832D002F53E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_MODULE_NAME = AccelerometerDemo;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$AccelerometerDemo-Swift.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D848E7E71ED5832D002F53E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86C8B04042C7C1E44B0C1F7F /* Pods-AccelerometerDemo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7MD88PM2GZ;
+				INFOPLIST_FILE = AccelerometerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nhn.AccelerometerDemo;
+				PRODUCT_MODULE_NAME = AccelerometerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AccelerometerDemo/AccelerometerDemo-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D848E7E81ED5832D002F53E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94286D757FEFF8BBCA6A82BA /* Pods-AccelerometerDemo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7MD88PM2GZ;
+				INFOPLIST_FILE = AccelerometerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nhn.AccelerometerDemo;
+				PRODUCT_MODULE_NAME = AccelerometerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AccelerometerDemo/AccelerometerDemo-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D848E7CA1ED5832D002F53E8 /* Build configuration list for PBXProject "AccelerometerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D848E7E41ED5832D002F53E8 /* Debug */,
+				D848E7E51ED5832D002F53E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D848E7E61ED5832D002F53E8 /* Build configuration list for PBXNativeTarget "AccelerometerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D848E7E71ED5832D002F53E8 /* Debug */,
+				D848E7E81ED5832D002F53E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D848E7C71ED5832D002F53E8 /* Project object */;
+}
