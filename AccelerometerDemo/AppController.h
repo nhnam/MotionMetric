@@ -22,8 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype)shared;
 -(void)stopTracking;
 -(void)restart;
--(CMAcceleration)last;
--(void)add:(CMAcceleration)data;
+-(Motion)last;
+-(void)addAccele:(CMAcceleration)data;
+-(void)addGyro:(CMRotationRate)data;
 -(NSArray<Acceleration*>*)all;
 -(NSArray<Acceleration*>*)last10;
 -(void)commit;

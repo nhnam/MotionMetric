@@ -43,8 +43,8 @@
     
 }
 
--(CMAcceleration)last {
-    CMAcceleration data;
+-(Motion)last {
+    Motion data;
     data.x = 0;
     data.y = 0;
     data.z = 0;
@@ -54,9 +54,24 @@
     return data;
 }
 
--(void)add:(CMAcceleration)data {
+-(void)addAccele:(CMAcceleration)data {
     Acceleration *acc = [[Acceleration alloc] init];
-    acc.data = data;
+    Motion motion;
+    motion.x = data.x;
+    motion.y = data.y;
+    motion.z = data.z;
+    acc.data = motion;
+    acc.timetamp = [NSDate date];
+    [_accelerations addObject:acc];
+}
+
+-(void)addGyro:(CMRotationRate)data {
+    Acceleration *acc = [[Acceleration alloc] init];
+    Motion motion;
+    motion.x = data.x;
+    motion.y = data.y;
+    motion.z = data.z;
+    acc.data = motion;
     acc.timetamp = [NSDate date];
     [_accelerations addObject:acc];
 }

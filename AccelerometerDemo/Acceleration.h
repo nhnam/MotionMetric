@@ -10,8 +10,14 @@
 #import <CoreMotion/CoreMotion.h>
 #import "NiceDate.h"
 
+typedef struct Motion{
+    double x;
+    double y;
+    double z;
+} Motion;
+
 @interface Acceleration : NSObject
-@property(assign, nonatomic) CMAcceleration data;
+@property(assign, nonatomic) Motion data;
 @property(strong, nonatomic) NSDate *timetamp;
 @property(strong, nonatomic) NSString *time;
 @end

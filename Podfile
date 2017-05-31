@@ -8,4 +8,5 @@ target 'AccelerometerDemo' do
   # Pods for AccelerometerDemo
   pod 'Realm', '~> 2.7.0'
   pod 'BButton', '~> 4.0.2'
+  pod 'MSSimpleGauge'
 end

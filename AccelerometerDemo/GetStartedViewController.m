@@ -29,6 +29,18 @@
     [self performSegueWithIdentifier:@"toStart" sender:self];
 }
 
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (motion == UIEventSubtypeMotionShake) {
+        NSLog(@"%@", event);
+    }
+}
+
 /*
 #pragma mark - Navigation
 

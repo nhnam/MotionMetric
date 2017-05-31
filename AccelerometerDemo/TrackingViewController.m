@@ -7,6 +7,7 @@
 //
 
 #import <CoreMotion/CoreMotion.h>
+#import <MSSimpleGauge/MSRangeGauge.h>
 #import "TrackingViewController.h"
 #import "AppController.h"
 #import "AccelerometerDemo-Swift.h"
@@ -21,7 +22,14 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *yBar;
 @property (weak, nonatomic) IBOutlet UIProgressView *zBar;
 @property (weak, nonatomic) IBOutlet UIView *graphContainer;
-@property (strong, nonatomic) GraphViewController *graphViewController;
+@property (weak, nonatomic) IBOutlet UISwitch *acceleSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *gyroSwitch;
+@property (strong, nonatomic) MSRangeGauge *xGauge;
+@property (strong, nonatomic) MSRangeGauge *yGauge;
+@property (strong, nonatomic) MSRangeGauge *zGauge;
+@property (weak, nonatomic) IBOutlet UIView *xContainer;
+@property (weak, nonatomic) IBOutlet UIView *yContainer;
+@property (weak, nonatomic) IBOutlet UIView *zContainer;
 
 @end
 
@@ -31,32 +39,81 @@
     CGFloat trackedTime;
     NSTimer *trackingTimer;
     CMMotionManager *motionManager;
-    CMAcceleration record;
+    Motion record;
+    NSOperationQueue *gyroMotionQueue;
+    NSOperationQueue *acceleMotionQueue;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     countDown = 3;
     trackedTime = 0.0;
     [_timerContainer setHidden:NO];
     [_trackingContainer setHidden:YES];
+    [_acceleSwitch setOn:NO];
+    [_gyroSwitch setOn:NO];
+    
+    motionManager = [[CMMotionManager alloc] init];
+    [motionManager setAccelerometerUpdateInterval:0.01];
+    [motionManager setGyroUpdateInterval:0.01];
+    acceleMotionQueue = [[NSOperationQueue alloc] init];
+    gyroMotionQueue = [[NSOperationQueue alloc] init];
+    
+    _xGauge = [[MSRangeGauge alloc] initWithFrame:_xContainer.bounds];
+    _yGauge = [[MSRangeGauge alloc] initWithFrame:_yContainer.bounds];
+    _zGauge = [[MSRangeGauge alloc] initWithFrame:_zContainer.bounds];
+    
+    [_xContainer addSubview:_xGauge];
+    [_yContainer addSubview:_yGauge];
+    [_zContainer addSubview:_zGauge];
+    
+    for(MSRangeGauge* view in @[_xGauge,_yGauge,_zGauge]) {
+        view.minValue = 0;
+        view.maxValue = 100;
+        view.upperRangeValue = 80;
+        view.lowerRangeValue = 20;
+        view.value = 50;
+        view.rangeFillColor = [UIColor colorWithRed:.41 green:.76 blue:.73 alpha:1];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self addGraphView];
     [self startCountDown];
 }
 
+- (IBAction)switcherValueDidChanged:(id)sender {
+    [self stateChanged];
+}
+
+
 - (void)startTrackingMotion {
-    motionManager = [[CMMotionManager alloc] init];
-    [motionManager setAccelerometerUpdateInterval:0.1];
-    [motionManager setGyroUpdateInterval:0.1];
-    NSOperationQueue *motionQueue = [[NSOperationQueue alloc] init];
-    [motionManager startAccelerometerUpdatesToQueue:motionQueue withHandler:^(CMAccelerometerData * _Nullable accelerometerData, NSError * _Nullable error) {
-        NSLog(@"X:%2.1f Y:%2.1f Z:%2.1f", accelerometerData.acceleration.x,accelerometerData.acceleration.y,accelerometerData.acceleration.z);
-        [[AppController shared] add:accelerometerData.acceleration];
-    }];
+    [self stateChanged];
+}
+
+- (void)stateChanged {
+    if (_acceleSwitch.isOn) {
+        if(motionManager.isAccelerometerAvailable) {
+            [motionManager startAccelerometerUpdatesToQueue:acceleMotionQueue withHandler:^(CMAccelerometerData * _Nullable accelerometerData, NSError * _Nullable error) {
+                [[AppController shared] addAccele:accelerometerData.acceleration];
+            }];
+        }
+        [_gyroSwitch setOn:NO];
+    } else if (motionManager.isAccelerometerActive){
+        [motionManager stopAccelerometerUpdates];
+    }
+    
+    if (_gyroSwitch.isOn) {
+        if( motionManager.isGyroAvailable ) {
+            [motionManager startGyroUpdatesToQueue:gyroMotionQueue withHandler:^(CMGyroData * _Nullable gyroData, NSError * _Nullable error) {
+                [[AppController shared] addGyro:gyroData.rotationRate];
+            }];
+        }
+        [_acceleSwitch setOn:NO];
+    } else if (motionManager.isGyroActive) {
+        [motionManager stopGyroUpdates];
+    }
 }
 
 - (void)startCountDown  {
@@ -81,16 +138,11 @@
 - (void)startTrackingTimer  {
     [_timerContainer setHidden:YES];
     [_trackingContainer setHidden:NO];
-    trackingTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(trackingUpdate:) userInfo:nil repeats:YES];
-    [NSTimer scheduledTimerWithTimeInterval:3 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.graphViewController updateData:[[AppController shared] last10] option: 0];
-        });
-    }];
+    trackingTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(trackingUpdate:) userInfo:nil repeats:YES];
 }
 
 - (void)trackingUpdate:(NSTimer*)timer {
-    trackedTime += 0.1;
+    trackedTime += 0.01;
     dispatch_async(dispatch_queue_create("com.nhn.trackingtimer", 0), ^{
        dispatch_async(dispatch_get_main_queue(), ^{
            [_countingLabel setText:[NSString stringWithFormat:@"%2.2f", trackedTime]];
@@ -98,24 +150,12 @@
            [_xBar setProgress:fabs(record.x)];
            [_yBar setProgress:fabs(record.y)];
            [_zBar setProgress:fabs(record.z)];
+           [_xGauge setValue: (record.x*10)+50 animated:NO];
+           [_yGauge setValue: (record.y*10)+50 animated:NO];
+           [_zGauge setValue: (record.z*10)+50 animated:NO];
        });
     });
 }
-
-- (void) addGraphView {
-    GraphViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"aloneGraphViewController"];
-    if(_graphViewController) {
-        [_graphViewController didMoveToParentViewController:nil];
-        [_graphViewController.view removeFromSuperview];
-        [_graphViewController removeFromParentViewController];
-    }
-    [self addChildViewController:vc];
-    vc.view.frame = _graphContainer.bounds;
-    [_graphContainer addSubview:vc.view];
-    [vc didMoveToParentViewController:self];
-    _graphViewController = vc;
-}
-
 
 - (IBAction)stopDidTouch:(id)sender {
     [trackingTimer invalidate];
