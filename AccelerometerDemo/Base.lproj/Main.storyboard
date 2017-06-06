@@ -327,10 +327,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z36-A1-loI" customClass="BButton">
-                                        <rect key="frame" x="107" y="513" width="161" height="60"/>
+                                        <rect key="frame" x="107" y="563" width="161" height="30"/>
                                         <color key="backgroundColor" red="0.30980392159999998" green="0.73725490199999999" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="Iyp-cy-ym9"/>
+                                            <constraint firstAttribute="height" constant="30" id="Iyp-cy-ym9"/>
                                             <constraint firstAttribute="width" constant="161" id="aDj-e7-Z9u"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
@@ -341,7 +341,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZsI-Xs-gvL">
-                                        <rect key="frame" x="10" y="80" width="355" height="403"/>
+                                        <rect key="frame" x="10" y="80" width="355" height="473"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rC1-iY-0W8">
@@ -376,10 +376,10 @@
                                     <constraint firstItem="pOm-8P-Xt6" firstAttribute="trailing" secondItem="rC1-iY-0W8" secondAttribute="trailing" id="4dx-c5-Urf"/>
                                     <constraint firstItem="pOm-8P-Xt6" firstAttribute="leading" secondItem="rC1-iY-0W8" secondAttribute="leading" id="M8m-3D-fhV"/>
                                     <constraint firstAttribute="trailing" secondItem="ZsI-Xs-gvL" secondAttribute="trailing" constant="10" id="N0B-Nu-Gx2"/>
-                                    <constraint firstAttribute="bottom" secondItem="Z36-A1-loI" secondAttribute="bottom" constant="30" id="Shs-v5-6HW"/>
+                                    <constraint firstAttribute="bottom" secondItem="Z36-A1-loI" secondAttribute="bottom" constant="10" id="Shs-v5-6HW"/>
                                     <constraint firstItem="ZsI-Xs-gvL" firstAttribute="leading" secondItem="6M9-04-nGq" secondAttribute="leading" constant="10" id="WC2-5g-Aa5"/>
                                     <constraint firstItem="ZsI-Xs-gvL" firstAttribute="top" secondItem="6M9-04-nGq" secondAttribute="top" constant="80" id="aTh-OZ-qVi"/>
-                                    <constraint firstItem="Z36-A1-loI" firstAttribute="top" secondItem="ZsI-Xs-gvL" secondAttribute="bottom" constant="30" id="bb0-rX-U3w"/>
+                                    <constraint firstItem="Z36-A1-loI" firstAttribute="top" secondItem="ZsI-Xs-gvL" secondAttribute="bottom" constant="10" id="bb0-rX-U3w"/>
                                     <constraint firstItem="Z36-A1-loI" firstAttribute="centerX" secondItem="6M9-04-nGq" secondAttribute="centerX" id="dQw-L2-ips"/>
                                     <constraint firstItem="rC1-iY-0W8" firstAttribute="top" secondItem="6M9-04-nGq" secondAttribute="top" constant="8" id="nJn-4w-Tdm"/>
                                     <constraint firstItem="pOm-8P-Xt6" firstAttribute="top" secondItem="rC1-iY-0W8" secondAttribute="bottom" constant="8" id="wsn-N0-y11"/>

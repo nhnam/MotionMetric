@@ -52,7 +52,7 @@
     [_timerContainer setHidden:NO];
     [_trackingContainer setHidden:YES];
     [_acceleSwitch setOn:NO];
-    [_gyroSwitch setOn:NO];
+    [_gyroSwitch setOn:YES];
     
     motionManager = [[CMMotionManager alloc] init];
     [motionManager setAccelerometerUpdateInterval:0.01];
@@ -75,6 +75,12 @@
         view.lowerRangeValue = 20;
         view.value = 50;
         view.rangeFillColor = [UIColor colorWithRed:.41 green:.76 blue:.73 alpha:1];
+    }
+    
+    if( motionManager.isGyroAvailable ) {
+        [motionManager startGyroUpdatesToQueue:gyroMotionQueue withHandler:^(CMGyroData * _Nullable gyroData, NSError * _Nullable error) {
+            [[AppController shared] addGyro:gyroData.rotationRate];
+        }];
     }
 }
 
@@ -100,6 +106,7 @@
             }];
         }
         [_gyroSwitch setOn:NO];
+        return;
     } else if (motionManager.isAccelerometerActive){
         [motionManager stopAccelerometerUpdates];
     }
@@ -111,6 +118,7 @@
             }];
         }
         [_acceleSwitch setOn:NO];
+        return;
     } else if (motionManager.isGyroActive) {
         [motionManager stopGyroUpdates];
     }

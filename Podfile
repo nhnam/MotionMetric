@@ -9,4 +9,5 @@ target 'AccelerometerDemo' do
   pod 'Realm', '~> 2.7.0'
   pod 'BButton', '~> 4.0.2'
   pod 'MSSimpleGauge'
+  pod 'SwiftChart'
 end

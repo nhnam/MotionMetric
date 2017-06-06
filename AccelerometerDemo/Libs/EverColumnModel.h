@@ -9,6 +9,7 @@
 #import "ChartModel.h"
 #import "YAxis.h"
 
+@class EverChart;
 @interface EverColumnModel : ChartModel
-
+-(void)drawSerie:(EverChart *)chart serie:(NSMutableDictionary *)serie;
 @end

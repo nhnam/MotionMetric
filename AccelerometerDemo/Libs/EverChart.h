@@ -11,7 +11,6 @@
 #import "Section.h"
 #import "ChartModel.h"
 #import "EverLineModel.h"
-#import "EverColumnModel.h"
 #import "EverMacro.h"
 
 @class ChartModel;
@@ -80,7 +79,6 @@
 
 /* init */
 -(void)initChart;
--(void)initXAxis;
 -(void)initYAxis;
 -(void)initModels;
 -(void)addModel:(ChartModel *)model withName:(NSString *)name;
@@ -119,15 +117,6 @@
 -(void)removeSections;
 -(void)initSections;
 
-/* YAxis */
-/**
- *  获取Y轴对象
- *
- *  @param section 区域
- *  @param index   Y轴位置
- *
- *  @return Y轴对象
- */
 -(YAxis *)getYAxis:(int) section withIndex:(int) index;
 -(void)setValuesForYAxis:(NSDictionary *)serie;
 

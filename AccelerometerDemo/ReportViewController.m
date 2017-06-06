@@ -47,6 +47,10 @@
     [self renderChart:responseObject];
 }
 
+- (void)viewDidLayoutSubviews {
+    self.fenshiChart.frame = self.graphContainer.bounds;
+}
+
 - (IBAction)doneDidTouch:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{
         [[AppController shared] restart];
@@ -84,36 +88,26 @@
     
     NSMutableArray *padding = [NSMutableArray arrayWithObjects:@"0",@"0",@"20",@"5",nil];
     [self.fenshiChart setPadding:padding];
+    
     NSMutableArray *secs = [[NSMutableArray alloc] init];
-    [secs addObject:@"2"];
+    
     [secs addObject:@"1"];
     
-    [self.fenshiChart addSections:2 withRatios:secs];
+    [self.fenshiChart addSections:1 withRatios:secs];
+    
     [[[self.fenshiChart sections] objectAtIndex:0] addYAxis:0];
-    [[[self.fenshiChart sections] objectAtIndex:1] addYAxis:0];
     
     [self.fenshiChart getYAxis:0 withIndex:0].tickInterval = 4;
-    [self.fenshiChart getYAxis:1 withIndex:0].tickInterval = 2;
+    
     self.fenshiChart.range = 241;
     
     NSMutableArray *series = [[NSMutableArray alloc] init];
     
     NSMutableArray *secOne = [[NSMutableArray alloc] init];
-    NSMutableArray *secTwo = [[NSMutableArray alloc] init];
     
-    //均价
+//    //均价
     NSMutableDictionary *serie = [[NSMutableDictionary alloc] init];
     NSMutableArray *data = [[NSMutableArray alloc] init];
-    [serie setObject:kFenShiAvgNameLine forKey:@"name"];
-    [serie setObject:@"均价" forKey:@"label"];
-    [serie setObject:data forKey:@"data"];
-    [serie setObject:kFenShiLine forKey:@"type"];
-    [serie setObject:@"0" forKey:@"yAxisType"];
-    [serie setObject:@"0" forKey:@"section"];
-    [serie setObject:kFenShiAvgColor forKey:@"color"];
-    [series addObject:serie];
-    [secOne addObject:serie];
-    
     
     //实时价
     serie = [[NSMutableDictionary alloc] init];
@@ -128,26 +122,12 @@
     [series addObject:serie];
     [secOne addObject:serie];
     
-    //VOL
-    serie = [[NSMutableDictionary alloc] init];
-    data = [[NSMutableArray alloc] init];
-    [serie setObject:kFenShiVolNameColumn forKey:@"name"];
-    [serie setObject:@"量" forKey:@"label"];
-    [serie setObject:data forKey:@"data"];
-    [serie setObject:kFenShiColumn forKey:@"type"];
-    [serie setObject:@"1" forKey:@"section"];
-    [serie setObject:@"0" forKey:@"decimal"];
-    [series addObject:serie];
-    [secTwo addObject:serie];
-    
     [self.fenshiChart setSeries:series];
     
     [[[self.fenshiChart sections] objectAtIndex:0] setSeries:secOne];
-    [[[self.fenshiChart sections] objectAtIndex:1] setSeries:secTwo];
-    
 }
 
--(void)setOptions:(NSDictionary *)options ForSerie:(NSMutableDictionary *)serie;{
+-(void)setOptions:(NSDictionary *)options ForSerie:(NSMutableDictionary *)serie {
     [serie setObject:[options objectForKey:@"name"] forKey:@"name"];
     [serie setObject:[options objectForKey:@"label"] forKey:@"label"];
     [serie setObject:[options objectForKey:@"type"] forKey:@"type"];
@@ -165,7 +145,6 @@
     
     NSMutableArray *data1 =[[NSMutableArray alloc] init];
     NSMutableArray *data2 =[[NSMutableArray alloc] init];
-    NSMutableArray *data3 =[[NSMutableArray alloc] init];
     
     NSMutableArray *category =[[NSMutableArray alloc] init];
     
@@ -180,20 +159,12 @@
         NSArray *item1 = @[dic[@"maTimeSharing"],closeYesterday];
         NSArray *item2 = @[dic[@"nowPri"],closeYesterday];
         
-        NSString *volume = [NSString stringWithFormat:@"%d",[dic[@"traNumber"] intValue]/100];
-        NSArray *item3 = @[volume,dic[@"nowPri"],closeYesterday];
-        
         [data1 addObject:item1];
         [data2 addObject:item2];
-        [data3 addObject:item3];
         
     }
     
-    [self.fenshiChart appendToData:data1 forName:kFenShiAvgNameLine];
     [self.fenshiChart appendToData:data2 forName:kFenShiNowNameLine];
-    [self.fenshiChart appendToData:data3 forName:kFenShiVolNameColumn];
-    
-    [self.fenshiChart appendToCategory:category forName:kFenShiAvgNameLine];
     [self.fenshiChart appendToCategory:category forName:kFenShiNowNameLine];
     
     [self.fenshiChart setNeedsDisplay];

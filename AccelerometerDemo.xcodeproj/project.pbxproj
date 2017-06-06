@@ -26,7 +26,6 @@
 		D84999101EDA854900EBBEFB /* NiceDate.m in Sources */ = {isa = PBXBuildFile; fileRef = D849990F1EDA854900EBBEFB /* NiceDate.m */; };
 		D8C8CC6F1EDD5D0F00446C28 /* ChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C8CC631EDD5D0F00446C28 /* ChartModel.m */; };
 		D8C8CC701EDD5D0F00446C28 /* EverChart.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C8CC651EDD5D0F00446C28 /* EverChart.m */; };
-		D8C8CC711EDD5D0F00446C28 /* EverColumnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C8CC671EDD5D0F00446C28 /* EverColumnModel.m */; };
 		D8C8CC721EDD5D0F00446C28 /* EverLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C8CC691EDD5D0F00446C28 /* EverLineModel.m */; };
 		D8C8CC731EDD5D0F00446C28 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C8CC6C1EDD5D0F00446C28 /* Section.m */; };
 		D8C8CC741EDD5D0F00446C28 /* YAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C8CC6E1EDD5D0F00446C28 /* YAxis.m */; };
@@ -67,8 +66,6 @@
 		D8C8CC631EDD5D0F00446C28 /* ChartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartModel.m; sourceTree = "<group>"; };
 		D8C8CC641EDD5D0F00446C28 /* EverChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EverChart.h; sourceTree = "<group>"; };
 		D8C8CC651EDD5D0F00446C28 /* EverChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EverChart.m; sourceTree = "<group>"; };
-		D8C8CC661EDD5D0F00446C28 /* EverColumnModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EverColumnModel.h; sourceTree = "<group>"; };
-		D8C8CC671EDD5D0F00446C28 /* EverColumnModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EverColumnModel.m; sourceTree = "<group>"; };
 		D8C8CC681EDD5D0F00446C28 /* EverLineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EverLineModel.h; sourceTree = "<group>"; };
 		D8C8CC691EDD5D0F00446C28 /* EverLineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EverLineModel.m; sourceTree = "<group>"; };
 		D8C8CC6A1EDD5D0F00446C28 /* EverMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EverMacro.h; sourceTree = "<group>"; };
@@ -154,12 +151,10 @@
 		D8C8CC611EDD5D0F00446C28 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				D8C8CC621EDD5D0F00446C28 /* ChartModel.h */,
-				D8C8CC631EDD5D0F00446C28 /* ChartModel.m */,
 				D8C8CC641EDD5D0F00446C28 /* EverChart.h */,
 				D8C8CC651EDD5D0F00446C28 /* EverChart.m */,
-				D8C8CC661EDD5D0F00446C28 /* EverColumnModel.h */,
-				D8C8CC671EDD5D0F00446C28 /* EverColumnModel.m */,
+				D8C8CC621EDD5D0F00446C28 /* ChartModel.h */,
+				D8C8CC631EDD5D0F00446C28 /* ChartModel.m */,
 				D8C8CC681EDD5D0F00446C28 /* EverLineModel.h */,
 				D8C8CC691EDD5D0F00446C28 /* EverLineModel.m */,
 				D8C8CC6A1EDD5D0F00446C28 /* EverMacro.h */,
@@ -337,7 +332,6 @@
 				D8C8CC721EDD5D0F00446C28 /* EverLineModel.m in Sources */,
 				D822A0BD1ED9AE1800CDD3C8 /* ScrollableGraphView.swift in Sources */,
 				D848E7F91ED5B1E4002F53E8 /* Acceleration.m in Sources */,
-				D8C8CC711EDD5D0F00446C28 /* EverColumnModel.m in Sources */,
 				D848E7D41ED5832D002F53E8 /* main.m in Sources */,
 				D848E7EB1ED58A68002F53E8 /* GetStartedViewController.m in Sources */,
 			);
@@ -469,6 +463,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7MD88PM2GZ;
@@ -490,6 +485,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7MD88PM2GZ;

@@ -14,6 +14,7 @@
 @implementation EverColumnModel
 
 -(void)drawSerie:(EverChart *)chart serie:(NSMutableDictionary *)serie{
+    return;
     if([serie objectForKey:@"data"] == nil || [[serie objectForKey:@"data"] count] == 0){
         return;
     }

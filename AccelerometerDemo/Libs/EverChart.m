@@ -89,10 +89,6 @@
     self.isInitialized = NO;
 }
 
-- (void)initXAxis{
-    
-}
-
 - (void)initYAxis{
     for(int secIndex=0;secIndex<[self.sections count];secIndex++){
         Section *sec = [self.sections objectAtIndex:secIndex];
@@ -170,50 +166,34 @@
 }
 
 -(void)initBtn{
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
-    
     CGContextSetFillColorWithColor(context, kBtnBgColor.CGColor);
     CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
-    
-    NSString *text = @"分时量";
-    
-    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    style.alignment = NSTextAlignmentCenter;
-    NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:kYFontSizeFenShi],NSForegroundColorAttributeName:[UIColor whiteColor],NSParagraphStyleAttributeName:style};
-    CGSize btnSize = [text sizeWithAttributes:attributes];
-
-    
-    Section *sec2 = self.sections[1];
-    float offset = 2;
-    CGRect btn2Rect = CGRectMake(1, sec2.frame.origin.y + offset, sec2.paddingLeft , sec2.paddingTop - offset * 2);
     CGContextBeginPath(context);
-    
-    UIBezierPath *path2 = [UIBezierPath bezierPathWithRoundedRect:btn2Rect cornerRadius:3];
-    CGContextAddPath(context, path2.CGPath);
     CGContextClosePath(context);
     CGContextFillPath(context);
-    
-    [text drawInRect:CGRectInset(btn2Rect, 0, (btn2Rect.size.height - btnSize.height)/2.0) withAttributes:attributes];
-    
 }
 
 -(void)setValuesForYAxis:(NSDictionary *)serie{
+    NSLog(@"setValuesForYAxis: %@", serie);
     NSString   *type  = [serie objectForKey:@"type"];
     ChartModel *model = [self getModel:type];
     [model setValuesForYAxis:self serie:serie];
 }
 
--(void)drawChart{
+-(void) drawChart {
     
-    for(int secIndex=0;secIndex<self.sections.count;secIndex++){
+    for(int secIndex=0; secIndex < self.sections.count; secIndex++){
+        
         Section *sec = [self.sections objectAtIndex:secIndex];
+        
         if(sec.hidden){
             continue;
         }
-//        plotWidth = (sec.frame.size.width-sec.paddingLeft)/(self.rangeTo-self.rangeFrom);
-        plotWidth = (sec.frame.size.width - sec.paddingLeft)/241.0;
-        for(int sIndex=0;sIndex<sec.series.count;sIndex++){
+        
+        plotWidth = (sec.frame.size.width - sec.paddingLeft) / 241.0;
+        
+        for( int sIndex=0; sIndex < sec.series.count;sIndex++ ){
             NSObject *serie = [sec.series objectAtIndex:sIndex];
             
             if(sec.hidden){
@@ -233,9 +213,9 @@
                     break;
                 }
             }else{
-                if([serie isKindOfClass:[NSArray class]]){
+                if( [serie isKindOfClass:[NSArray class]] ){
                     NSArray *se = (NSArray *)serie;
-                    for(int i=0;i<[se count];i++){
+                    for(int i=0; i < [se count]; i++){
                         [self drawSerie:[se objectAtIndex:i]];
                     }
                 }else{
@@ -244,19 +224,19 @@
             }
         }
     }
-    [self drawLabels];
+    //[self drawLabels];
 }
 
 -(void)drawLabels{
     
-    for(int i=0;i<self.sections.count;i++){
+    for(int i=0 ; i<self.sections.count ; i++){
         Section *sec = [self.sections objectAtIndex:i];
         if(sec.hidden){
             continue;
         }
         
         float w = 0;
-        for(int s=0;s<sec.series.count;s++){
+        for(int s=0; s < sec.series.count ; s++){
                         
             NSMutableArray *label =[[NSMutableArray alloc] init];
             NSObject *serie = [sec.series objectAtIndex:s];
@@ -282,7 +262,7 @@
                     [self setLabel:label forSerie:(NSMutableDictionary *)serie];
                 }
             }
-            for(int j=0;j<label.count;j++){
+            for(int j=0 ; j<label.count ; j++){
                 
                 NSMutableDictionary *lbl = [label objectAtIndex:j];
                 NSString *text  = [lbl objectForKey:@"text"];
@@ -296,8 +276,7 @@
                 if (i == 0) {
                     rect = CGRectMake(5 + w + 5 * i, sec.frame.origin.y + (sec.paddingTop - textSize.height)/2.0, textSize.width, textSize.height);
                 }
-                else
-                {
+                else {
                     rect = CGRectMake(sec.frame.origin.x + sec.paddingLeft + w + 10, sec.frame.origin.y + (sec.paddingTop - textSize.height)/2.0, textSize.width, textSize.height);
                 }
                 
@@ -356,15 +335,13 @@
             continue;
         }
 
-        //中间竖线(虚线)
         float interWidth = (sec.frame.size.width - sec.paddingLeft)/4.0;
         for (int i = 1; i< 4; i++) {
             
-            if (i == 2) { //设置实线
+            if (i == 2) {
                 CGContextSetLineDash(context, 0, 0, 0);
                 CGContextSetLineWidth(context, 0.8);
             }else{
-                //设置虚线
                 CGFloat dash[] = {1,1};
                 CGContextSetLineDash (context,20,dash,2);
                 CGContextSetLineWidth(context, 1);
@@ -480,8 +457,11 @@
                     CGContextStrokePath(context);
                 }
             }
+            
             for(int i=1; i <= yaxis.tickInterval;i++){
+                
                 if(yaxis.baseValue - i*step >= yaxis.min && yaxis.min < MAXFLOAT){
+            
                     float iy = [self getLocalY:(yaxis.baseValue - i*step) withSection:secIndex withAxis:aIndex];
                     
                     CGContextSetStrokeColorWithColor(context, kDashColor.CGColor);
@@ -808,8 +788,8 @@
     [self addModel:model withName:kFenShiLine];
     
     //column
-    model = [[EverColumnModel alloc] init];
-    [self addModel:model withName:kFenShiColumn];
+//    model = [[EverColumnModel alloc] init];
+//    [self addModel:model withName:kFenShiColumn];
     
 }
 
@@ -824,7 +804,6 @@
 - (void)drawRect:(CGRect)rect {
     [self initChart];
     [self initSections];
-    [self initXAxis];
     [self initYAxis];
     [self initBtn];
     [self drawXAxis];
@@ -843,30 +822,36 @@
             self.touchFlag = [touch locationInView:self].y;
         }
     }
-//    else if ([ts count]==2) {
-//        
-//        self.touchFlag = [[ts objectAtIndex:0] locationInView:self].x ;
-//        self.touchFlagTwo = [[ts objectAtIndex:1] locationInView:self].x;
-//        
-//    }
+    else if ([ts count] == 2) {
+        self.touchFlag = [[ts objectAtIndex:0] locationInView:self].x ;
+        self.touchFlagTwo = [[ts objectAtIndex:1] locationInView:self].x;
+    }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     NSArray *ts = [touches allObjects];
-    if([ts count]==1){
+    
+    if( [ts count]==1 ) {
+        NSLog(@"Two finger");
+        
         UITouch* touch = [ts objectAtIndex:0];
         self.touchY = [touch locationInView:self].y;
         
         int i = [self getIndexOfSection:[touch locationInView:self]];
-        if(i!=-1){
+        
+        if( i != -1){
+            
             Section *sec = [self.sections objectAtIndex:i];
-            if([touch locationInView:self].x > sec.paddingLeft)
+        
+            if([touch locationInView:self].x > sec.paddingLeft) {
                 [self setSelectedIndexByPoint:[touch locationInView:self]];
+            }
+            
             int interval = 5;
             if([touch locationInView:self].x < sec.paddingLeft){
                 
                 if(fabs([touch locationInView:self].y - self.touchFlag) >= MIN_INTERVAL){
-                    if([touch locationInView:self].y - self.touchFlag > 0){
+                    if( [touch locationInView:self].y - self.touchFlag > 0 ){
                         if(self.plotCount > (self.rangeTo-self.rangeFrom)){
                             if(self.rangeFrom - interval >= 0){
                                 self.rangeFrom -= interval;
@@ -906,7 +891,8 @@
                 }
             }
         }
-        
+    } else if ( [ts count]==2 ) {
+        NSLog(@"Two finger");
     }
 }
 
@@ -932,7 +918,7 @@
         self.touchY = [touch locationInView:self].y;
         
         int i = [self getIndexOfSection:[touch locationInView:self]];
-        if(i!=-1){
+        if( i != -1 ){
             Section *sec = [self.sections objectAtIndex:i];
             if([touch locationInView:self].x > sec.paddingLeft){
                 if(sec.paging){

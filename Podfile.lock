@@ -4,17 +4,20 @@ PODS:
   - Realm (2.7.0):
     - Realm/Headers (= 2.7.0)
   - Realm/Headers (2.7.0)
+  - SwiftChart (0.5.0)
 
 DEPENDENCIES:
   - BButton (~> 4.0.2)
   - MSSimpleGauge
   - Realm (~> 2.7.0)
+  - SwiftChart
 
 SPEC CHECKSUMS:
   BButton: ab0f2ed3b998ae73c5188b57d270d81e4a1eeb27
   MSSimpleGauge: e5f7bf2561f1338055fcd321c5469b0d6c689d14
   Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
+  SwiftChart: d1d22d2b1c4582f4d561edf97a210059c00ee256
 
-PODFILE CHECKSUM: b1ddd7e52f22bbbb6ea071772a0cbef472e163cb
+PODFILE CHECKSUM: d288d3193136172fc8afc44979ccb984c73b867a
 
 COCOAPODS: 1.2.1
