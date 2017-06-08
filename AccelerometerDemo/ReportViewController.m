@@ -40,10 +40,6 @@
     
     [self initFenShiChart];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"txt"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-    
     [self renderChart:1];
 }
 

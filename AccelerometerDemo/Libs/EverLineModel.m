@@ -53,14 +53,13 @@
         CGContextFillPath(context);
         
         //画横线
-        if (chart.touchY > sec.paddingTop && chart.touchY < sec.frame.size.height) {
-            CGContextMoveToPoint(context, sec.frame.origin.x + sec.paddingLeft, chart.touchY);
-            CGContextAddLineToPoint(context, sec.frame.origin.x + sec.frame.size.width, chart.touchY);
+            CGContextMoveToPoint(context, sec.frame.origin.x+sec.paddingLeft, [chart getLocalY:value withSection:section withAxis:yAxis]);
+            CGContextAddLineToPoint(context,sec.frame.origin.x + sec.frame.size.width,[chart getLocalY:value withSection:section withAxis:yAxis]);
             CGContextStrokePath(context);
             
             //计算横线对应刻度
             YAxis *yaxis = sec.yAxises[0];
-            CGFloat touchPointValue = (sec.frame.origin.y + sec.frame.size.height - chart.touchY)/(sec.frame.size.height - sec.paddingTop) * (yaxis.max - yaxis.min) + yaxis.min;
+            CGFloat touchPointValue = ([chart getLocalY:value withSection:section withAxis:yAxis])/(sec.frame.size.height - sec.paddingTop) * (yaxis.max - yaxis.min) + yaxis.min;;
             
             //画横线左侧刻度标记
             NSString *text;
@@ -75,7 +74,9 @@
             
             NSDictionary *attributes = @{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:kYFontSizeFenShi],NSParagraphStyleAttributeName:style};
             CGSize textSize = [text sizeWithAttributes:attributes];
-            CGRect rect = CGRectMake(sec.paddingLeft + sec.frame.origin.x - textSize.width - 3, chart.touchY - (textSize.height + 2)/2.0, textSize.width + 2, textSize.height + 2);
+            CGRect rect = CGRectMake(sec.paddingLeft + sec.frame.origin.x - textSize.width - 3,
+                                     [chart getLocalY:value withSection:section withAxis:yAxis] - (textSize.height + 2)/2.0,
+                                     textSize.width + 2, textSize.height + 2);
             
             CGContextSetShouldAntialias(context, YES);
             CGContextSetStrokeColorWithColor(context, kYFontColor.CGColor);
@@ -89,9 +90,6 @@
             CGContextStrokePath(context);
             
             [text drawInRect:rect withAttributes:attributes];
-            
-        }
-
     }
     
     CGContextSetShouldAntialias(context, YES);
