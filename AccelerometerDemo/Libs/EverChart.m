@@ -389,16 +389,16 @@
             CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
 
             //原点处的Y轴刻度
-            if ([yAxisType isEqualToString:kFenShiLine]) {
-                
-                //显示分时图原点处左侧价格刻度
-                [[@"" stringByAppendingFormat:format,yaxis.baseValue] drawInRect:CGRectMake(0, baseY - kYFontSizeFenShi, sec.frame.origin.x + sec.paddingLeft - 1, kYFontSizeFenShi * 2) withAttributes:@{NSFontAttributeName:[UIFont fontWithName:KYFontName size:kYFontSizeFenShi],NSParagraphStyleAttributeName:style,NSForegroundColorAttributeName:kFenShiDownColor}];
-                
-                //显示分时图原点处右侧百分比
-                NSString *percentText = [NSString stringWithFormat:@"%.2f%%",(yaxis.baseValue - middleValue)/middleValue * 100];
-                [percentText drawInRect:CGRectMake(sec.frame.origin.x + sec.frame.size.width + 1, baseY - kYFontSizeFenShi, 40, kYFontSizeFenShi * 2) withAttributes:@{NSFontAttributeName:[UIFont fontWithName:KYFontName size:kYFontSizeFenShi],NSParagraphStyleAttributeName:style2,NSForegroundColorAttributeName:kFenShiDownColor}];
-
-            }
+//            if ([yAxisType isEqualToString:kFenShiLine]) {
+//                
+//                //显示分时图原点处左侧价格刻度
+//                [[@"" stringByAppendingFormat:format,yaxis.baseValue] drawInRect:CGRectMake(0, baseY - kYFontSizeFenShi, sec.frame.origin.x + sec.paddingLeft - 1, kYFontSizeFenShi * 2) withAttributes:@{NSFontAttributeName:[UIFont fontWithName:KYFontName size:kYFontSizeFenShi],NSParagraphStyleAttributeName:style,NSForegroundColorAttributeName:kFenShiDownColor}];
+//                
+//                //显示分时图原点处右侧百分比
+//                NSString *percentText = [NSString stringWithFormat:@"%.2f%%",(yaxis.baseValue - middleValue)/middleValue * 100];
+//                [percentText drawInRect:CGRectMake(sec.frame.origin.x + sec.frame.size.width + 1, baseY - kYFontSizeFenShi, 40, kYFontSizeFenShi * 2) withAttributes:@{NSFontAttributeName:[UIFont fontWithName:KYFontName size:kYFontSizeFenShi],NSParagraphStyleAttributeName:style2,NSForegroundColorAttributeName:kFenShiDownColor}];
+//
+//            }
             
             if (yaxis.tickInterval%2 == 1) {
                 yaxis.tickInterval +=1;
@@ -440,13 +440,13 @@
                     [valueY drawInRect:CGRectMake(0, iy - offset, sec.frame.origin.x + sec.paddingLeft - 1, kYFontSizeFenShi * 2) withAttributes:@{NSFontAttributeName:[UIFont fontWithName:KYFontName size:kYFontSizeFenShi],NSParagraphStyleAttributeName:style,NSForegroundColorAttributeName:textColor}];
                     
                     //显示分时图右侧百分比
-                    if ([yAxisType isEqualToString:kFenShiLine]) {
-                        
-                        NSString *percentText = [NSString stringWithFormat:@"%.2f%%",(yaxis.baseValue + i * step - middleValue)/middleValue * 100];
-
-                        [percentText drawInRect:CGRectMake(sec.frame.origin.x + sec.frame.size.width + 1, iy - offset, 40, kYFontSizeFenShi * 2) withAttributes:@{NSFontAttributeName:[UIFont fontWithName:KYFontName size:kYFontSizeFenShi],NSParagraphStyleAttributeName:style2,NSForegroundColorAttributeName:textColor}];
-
-                    }
+//                    if ([yAxisType isEqualToString:kFenShiLine]) {
+//                        
+//                        NSString *percentText = [NSString stringWithFormat:@"%.2f%%",(yaxis.baseValue + i * step - middleValue)/middleValue * 100];
+//
+//                        [percentText drawInRect:CGRectMake(sec.frame.origin.x + sec.frame.size.width + 1, iy - offset, 40, kYFontSizeFenShi * 2) withAttributes:@{NSFontAttributeName:[UIFont fontWithName:KYFontName size:kYFontSizeFenShi],NSParagraphStyleAttributeName:style2,NSForegroundColorAttributeName:textColor}];
+//
+//                    }
                     
                     if(yaxis.baseValue + i*step < yaxis.max){
                         CGContextSetStrokeColorWithColor(context, kDashColor.CGColor);
