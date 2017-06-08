@@ -44,7 +44,7 @@
     NSData *data = [NSData dataWithContentsOfFile:path];
     id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
     
-    [self renderChart:responseObject];
+    [self renderChart:1];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -71,6 +71,8 @@
     if (selectedIndex == 2) {
         [_graphViewController updateData:[[AppController shared] all] option:2];
     }
+    
+    [self renderChart:selectedIndex];
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
@@ -136,31 +138,46 @@
     [serie setObject:[options objectForKey:@"color"] forKey:@"color"];
 }
 
-
-- (void)renderChart:(NSDictionary *)responseObject{
+- (void)renderChart:(NSInteger)index {
     
     [self.fenshiChart reset];
     [self.fenshiChart clearData];
     [self.fenshiChart clearCategory];
     
-    NSMutableArray *data1 =[[NSMutableArray alloc] init];
     NSMutableArray *data2 =[[NSMutableArray alloc] init];
     
     NSMutableArray *category =[[NSMutableArray alloc] init];
     
-    NSArray *listArray = responseObject[@"newList"];
-    NSArray *closeYesterday = responseObject[@"yesterdayEndPri"];
+    NSArray *listArray = [[AppController shared] all];
     
     for (int i = 0;i<listArray.count;i++) {
         
-        NSDictionary *dic = listArray[i];
-        [category addObject:dic[@"dateTime"]];
+        Acceleration *dic = listArray[i];
+        [category addObject:dic.timetamp];
         
-        NSArray *item1 = @[dic[@"maTimeSharing"],closeYesterday];
-        NSArray *item2 = @[dic[@"nowPri"],closeYesterday];
+        switch (index) {
+            case 0:
+            {
+                NSArray *item1 = @[@(dic.data.x)];
+                [data2 addObject:item1];
+            }
+                break;
+            case 1:
+            {
+                NSArray *item1 = @[@(dic.data.y)];
+                [data2 addObject:item1];
+            }
+                break;
+            case 2:
+            {
+                NSArray *item1 = @[@(dic.data.z)];
+                [data2 addObject:item1];
+            }
+                break;
+            default:
+                break;
+        }
         
-        [data1 addObject:item1];
-        [data2 addObject:item2];
         
     }
     
