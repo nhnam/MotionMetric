@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftChart
 
 @objc class GraphViewController: UIViewController {
 
