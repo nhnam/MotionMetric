@@ -18,9 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIView *trackingContainer;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 @property (weak, nonatomic) IBOutlet UILabel *countingLabel;
-@property (weak, nonatomic) IBOutlet UIProgressView *xBar;
-@property (weak, nonatomic) IBOutlet UIProgressView *yBar;
-@property (weak, nonatomic) IBOutlet UIProgressView *zBar;
 @property (weak, nonatomic) IBOutlet UIView *graphContainer;
 @property (weak, nonatomic) IBOutlet UISwitch *acceleSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *gyroSwitch;
@@ -38,6 +35,7 @@
     NSInteger countDown;
     CGFloat trackedTime;
     NSTimer *trackingTimer;
+    NSTimer *labelTimer;
     CMMotionManager *motionManager;
     Motion record;
     NSOperationQueue *gyroMotionQueue;
@@ -147,21 +145,27 @@
     [_timerContainer setHidden:YES];
     [_trackingContainer setHidden:NO];
     trackingTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(trackingUpdate:) userInfo:nil repeats:YES];
+    labelTimer = [NSTimer scheduledTimerWithTimeInterval:1.00 target:self selector:@selector(labelUpdate:) userInfo:nil repeats:YES];
 }
 
 - (void)trackingUpdate:(NSTimer*)timer {
-    trackedTime += 0.01;
+    
     dispatch_async(dispatch_queue_create("com.nhn.trackingtimer", 0), ^{
        dispatch_async(dispatch_get_main_queue(), ^{
-           [_countingLabel setText:[NSString stringWithFormat:@"%2.2f", trackedTime]];
            record = [[AppController shared] last];
-           [_xBar setProgress:fabs(record.x)];
-           [_yBar setProgress:fabs(record.y)];
-           [_zBar setProgress:fabs(record.z)];
            [_xGauge setValue: (record.x*10)+50 animated:NO];
            [_yGauge setValue: (record.y*10)+50 animated:NO];
            [_zGauge setValue: (record.z*10)+50 animated:NO];
        });
+    });
+}
+
+- (void)labelUpdate:(NSTimer*)timer {
+    trackedTime += 1.0;
+    dispatch_async(dispatch_queue_create("com.nhn.trackingtimer.updatelb", 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_countingLabel setText:[NSString stringWithFormat:@"%2.2f", trackedTime]];
+        });
     });
 }
 

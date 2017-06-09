@@ -10,4 +10,5 @@ target 'AccelerometerDemo' do
   pod 'BButton', '~> 4.0.2'
   pod 'MSSimpleGauge'
   pod 'SwiftChart'
+  pod 'MSSimpleGauge'
 end
