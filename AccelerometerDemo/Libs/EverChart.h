@@ -65,13 +65,13 @@
 @property (nonatomic)        float touchY; //记录选中点的Y坐标
 @property (nonatomic)        float touchFlag; //双指手势位置
 @property (nonatomic)        float touchFlagTwo; //双指手势位置
-@property (nonatomic,retain) NSMutableArray *padding;
-@property (nonatomic,retain) NSMutableArray *series;
-@property (nonatomic,retain) NSMutableArray *sections;
-@property (nonatomic,retain) NSMutableArray  *ratios;
-@property (nonatomic,retain) NSMutableDictionary *models;
-@property (nonatomic,retain) UIColor  *borderColor;
-@property (nonatomic,retain) NSString *title;
+@property (nonatomic,strong) NSMutableArray *padding;
+@property (nonatomic,strong) NSMutableArray *series;
+@property (nonatomic,strong) NSMutableArray *sections;
+@property (nonatomic,strong) NSMutableArray  *ratios;
+@property (nonatomic,strong) ChartModel *model;
+@property (nonatomic,strong) UIColor  *borderColor;
+@property (nonatomic,strong) NSString *title;
 
 -(float)getLocalY:(float)val withSection:(int)sectionIndex withAxis:(int)yAxisIndex;
 -(void)setSelectedIndexByPoint:(CGPoint) point;
@@ -80,17 +80,13 @@
 /* init */
 -(void)initChart;
 -(void)initYAxis;
--(void)initModels;
--(void)addModel:(ChartModel *)model withName:(NSString *)name;
--(ChartModel *)getModel:(NSString *)name;
+-(void)initModel;
 
 /* draw */
 -(void)drawChart;
 -(void)drawXAxis;
 -(void)drawYAxis;
 -(void)drawSerie:(NSMutableDictionary *)serie;
--(void)drawLabels;
--(void)setLabel:(NSMutableArray *)label forSerie:(NSMutableDictionary *) serie;
 
 /* data */
 -(void)appendToData:(NSArray *)data forName:(NSString *)name;

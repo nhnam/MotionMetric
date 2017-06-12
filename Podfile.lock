@@ -1,5 +1,8 @@
 PODS:
   - BButton (4.0.2)
+  - Crashlytics (3.8.4):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.11)
   - MSSimpleGauge (0.5)
   - Realm (2.7.0):
     - Realm/Headers (= 2.7.0)
@@ -8,16 +11,20 @@ PODS:
 
 DEPENDENCIES:
   - BButton (~> 4.0.2)
+  - Crashlytics
+  - Fabric
   - MSSimpleGauge
   - Realm (~> 2.7.0)
   - SwiftChart
 
 SPEC CHECKSUMS:
   BButton: ab0f2ed3b998ae73c5188b57d270d81e4a1eeb27
+  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   MSSimpleGauge: e5f7bf2561f1338055fcd321c5469b0d6c689d14
   Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
   SwiftChart: d1d22d2b1c4582f4d561edf97a210059c00ee256
 
-PODFILE CHECKSUM: 9ff6814c7285ac97c21111a4213f2d9f359f44a5
+PODFILE CHECKSUM: 14c092c02ba49a24f317195d87a092a0f4f65c2b
 
 COCOAPODS: 1.2.1

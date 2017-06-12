@@ -167,7 +167,6 @@
         
         [yaxis setMax:maxY];
         [yaxis setMin:minY];
-        NSLog(@"min:%f,max:%f",minY,maxY);
         
         return;
     }
@@ -282,47 +281,44 @@
     CGContextSetLineWidth(context, 1.0f);
     
     NSMutableArray *data          = [serie objectForKey:@"data"];
-    NSString       *type          = [serie objectForKey:@"type"];
     int            section        = [[serie objectForKey:@"section"] intValue];
     NSMutableArray *category      = [serie objectForKey:@"category"];
     Section *sec = [chart.sections objectAtIndex:section];
     
-    if([type isEqualToString:kFenShiLine]){
-        for(int i=chart.rangeFrom;i<chart.rangeTo;i++){
-            if(i == data.count){
-                break;
-            }
-            if([data objectAtIndex:i] == nil){
-                continue;
-            }
+    for(int i=chart.rangeFrom;i<chart.rangeTo;i++){
+        if(i == data.count){
+            break;
+        }
+        if([data objectAtIndex:i] == nil){
+            continue;
+        }
+        
+        float ix  = sec.frame.origin.x+sec.paddingLeft+(i-chart.rangeFrom)*chart.plotWidth;
+        
+        if(i == chart.selectedIndex && chart.selectedIndex < data.count && [data objectAtIndex:chart.selectedIndex]!=nil){
             
-            float ix  = sec.frame.origin.x+sec.paddingLeft+(i-chart.rangeFrom)*chart.plotWidth;
+            NSString *tipsText = [NSString stringWithFormat:@"%@",[category objectAtIndex:chart.selectedIndex]];
             
-            if(i == chart.selectedIndex && chart.selectedIndex < data.count && [data objectAtIndex:chart.selectedIndex]!=nil){
-                
-                NSString *tipsText = [NSString stringWithFormat:@"%@",[category objectAtIndex:chart.selectedIndex]];
-                
-                CGContextSetShouldAntialias(context, YES);
-                CGContextSetStrokeColorWithColor(context, kYFontColor.CGColor);
-                CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
-                
-                CGSize size = [tipsText sizeWithAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:kYFontSizeFenShi]}];
-                
-                int x = ix+chart.plotWidth/2;
-                int y = sec.frame.origin.y+sec.paddingTop;
-                if(x+size.width > sec.frame.size.width+sec.frame.origin.x){
-                    x= x-(size.width+4);
-                }
-                CGContextFillRect (context, CGRectMake (x, y, size.width+4,size.height+2));
-                UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(x, y, size.width+4,size.height+2) cornerRadius:4];
-                CGContextAddPath(context, path.CGPath);
-                CGContextStrokePath(context);
-                
-                [tipsText drawAtPoint:CGPointMake(x+2,y+1) withAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:kYFontSizeFenShi]}];
-                CGContextSetShouldAntialias(context, NO);
-                
-                
+            CGContextSetShouldAntialias(context, YES);
+            CGContextSetStrokeColorWithColor(context, kYFontColor.CGColor);
+            CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+            
+            CGSize size = [tipsText sizeWithAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:kYFontSizeFenShi]}];
+            
+            int x = ix+chart.plotWidth/2;
+            int y = sec.frame.origin.y+sec.paddingTop;
+            if(x+size.width > sec.frame.size.width+sec.frame.origin.x){
+                x= x-(size.width+4);
             }
+            CGContextFillRect (context, CGRectMake (x, y, size.width+4,size.height+2));
+            UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(x, y, size.width+4,size.height+2) cornerRadius:4];
+            CGContextAddPath(context, path.CGPath);
+            CGContextStrokePath(context);
+            
+            [tipsText drawAtPoint:CGPointMake(x+2,y+1) withAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:kYFontSizeFenShi]}];
+            CGContextSetShouldAntialias(context, NO);
+            
+            
         }
     }
     

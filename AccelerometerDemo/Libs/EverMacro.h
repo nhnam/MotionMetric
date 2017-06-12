@@ -26,11 +26,7 @@
 #define kFenShiDownColor [UIColor colorWithRed:22/255.0 green:151/255.0 blue:25/255.0          alpha:1]       //成交量下跌颜色
 #define kFenShiEqualColor [UIColor colorWithRed:183/255.0 green:183/255.0 blue:183/255.0       alpha:1]       //成交量持平颜色
 
-#define kFenShiLine                                                                            @"fenShiLine"  //线段图类型标记
-#define kFenShiColumn                                                                          @"fenShiColumn"//成交量图类型标记
-
 #define kFenShiNowNameLine                                                                     @"nowLine"     //分时图实时线名称标记
 #define kFenShiAvgNameLine                                                                     @"avgLine"     //分时图均线名称标记
-#define kFenShiVolNameColumn                                                                      @"column"      //分时图成交量名称标记
 
 #endif /* EverMacro_h */

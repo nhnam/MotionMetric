@@ -11,4 +11,6 @@ target 'AccelerometerDemo' do
   pod 'MSSimpleGauge'
   pod 'SwiftChart'
   pod 'MSSimpleGauge'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end

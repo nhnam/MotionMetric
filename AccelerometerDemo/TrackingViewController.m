@@ -10,7 +10,6 @@
 #import <MSSimpleGauge/MSRangeGauge.h>
 #import "TrackingViewController.h"
 #import "AppController.h"
-#import "AccelerometerDemo-Swift.h"
 
 @interface TrackingViewController ()
 @property (weak, nonatomic) IBOutlet UIView *timerContainer;
@@ -27,13 +26,15 @@
 @property (weak, nonatomic) IBOutlet UIView *xContainer;
 @property (weak, nonatomic) IBOutlet UIView *yContainer;
 @property (weak, nonatomic) IBOutlet UIView *zContainer;
+@property (weak, nonatomic) IBOutlet UIView *chartContainer;
 
 @end
 
 @implementation TrackingViewController {
-    NSTimer *countDownTimer;
+    
     NSInteger countDown;
     CGFloat trackedTime;
+    NSTimer *countDownTimer;
     NSTimer *trackingTimer;
     NSTimer *labelTimer;
     CMMotionManager *motionManager;
@@ -91,7 +92,6 @@
     [self stateChanged];
 }
 
-
 - (void)startTrackingMotion {
     [self stateChanged];
 }
@@ -144,12 +144,11 @@
 - (void)startTrackingTimer  {
     [_timerContainer setHidden:YES];
     [_trackingContainer setHidden:NO];
-    trackingTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(trackingUpdate:) userInfo:nil repeats:YES];
-    labelTimer = [NSTimer scheduledTimerWithTimeInterval:1.00 target:self selector:@selector(labelUpdate:) userInfo:nil repeats:YES];
+    trackingTimer = [NSTimer scheduledTimerWithTimeInterval:0.016 target:self selector:@selector(trackingUpdate:) userInfo:nil repeats:YES];
+    labelTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(labelUpdate:) userInfo:nil repeats:YES];
 }
 
 - (void)trackingUpdate:(NSTimer*)timer {
-    
     dispatch_async(dispatch_queue_create("com.nhn.trackingtimer", 0), ^{
        dispatch_async(dispatch_get_main_queue(), ^{
            record = [[AppController shared] last];
@@ -159,9 +158,8 @@
        });
     });
 }
-
 - (void)labelUpdate:(NSTimer*)timer {
-    trackedTime += 1.0;
+    trackedTime += 0.01;
     dispatch_async(dispatch_queue_create("com.nhn.trackingtimer.updatelb", 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [_countingLabel setText:[NSString stringWithFormat:@"%2.2f", trackedTime]];
@@ -171,20 +169,16 @@
 
 - (IBAction)stopDidTouch:(id)sender {
     [trackingTimer invalidate];
+    [countDownTimer invalidate];
+    [labelTimer invalidate];
+    
     [motionManager stopAccelerometerUpdates];
+    [motionManager stopGyroUpdates];
+    
     [self dismissViewControllerAnimated:YES completion:^{
         [[AppController shared] stopTracking];
     }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

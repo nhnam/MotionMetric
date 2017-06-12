@@ -26,6 +26,7 @@
 }
 
 - (IBAction)startDidTouch:(id)sender {
+    [[AppController shared] restart];
     [self performSegueWithIdentifier:@"toStart" sender:self];
 }
 

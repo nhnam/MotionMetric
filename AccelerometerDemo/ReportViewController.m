@@ -8,7 +8,6 @@
 
 #import "ReportViewController.h"
 #import "AppController.h"
-#import "AccelerometerDemo-Swift.h"
 #import "EverChart.h"
 
 @interface ReportViewController ()
@@ -16,7 +15,6 @@
 @property (strong, nonatomic) EverChart *fenshiChart;
 @property (weak, nonatomic) IBOutlet UIView *graphContainer;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
-@property (strong, nonatomic) GraphViewController *graphViewController;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *metricSegment;
     
 @end
@@ -36,6 +34,7 @@
     CGFloat height = MIN(self.graphContainer.frame.size.width, self.graphContainer.frame.size.height);
     
     self.fenshiChart = [[EverChart alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+    
     [self.graphContainer addSubview:self.fenshiChart];
     
     [self initFenShiChart];
@@ -58,16 +57,6 @@
 }
 
 - (IBAction)didSelectUpdate:(id)sender {
-    if (selectedIndex == 0) {
-        [_graphViewController updateData:[[AppController shared] all] option:0];
-    }
-    if (selectedIndex == 1) {
-        [_graphViewController updateData:[[AppController shared] all] option:1];
-    }
-    if (selectedIndex == 2) {
-        [_graphViewController updateData:[[AppController shared] all] option:2];
-    }
-    
     [self renderChart:selectedIndex];
 }
 
@@ -86,49 +75,35 @@
     
     NSMutableArray *padding = [NSMutableArray arrayWithObjects:@"0",@"0",@"20",@"5",nil];
     [self.fenshiChart setPadding:padding];
-    
     NSMutableArray *secs = [[NSMutableArray alloc] init];
-    
     [secs addObject:@"1"];
-    
     [self.fenshiChart addSections:1 withRatios:secs];
-    
     [[[self.fenshiChart sections] objectAtIndex:0] addYAxis:0];
-    
-    [self.fenshiChart getYAxis:0 withIndex:0].tickInterval = 4;
-    
+    [self.fenshiChart getYAxis:0 withIndex:0].tickInterval = 1;
     self.fenshiChart.range = 241;
-    
     NSMutableArray *series = [[NSMutableArray alloc] init];
-    
     NSMutableArray *secOne = [[NSMutableArray alloc] init];
-    
 //    //均价
     NSMutableDictionary *serie = [[NSMutableDictionary alloc] init];
     NSMutableArray *data = [[NSMutableArray alloc] init];
-    
     //实时价
     serie = [[NSMutableDictionary alloc] init];
     data = [[NSMutableArray alloc] init];
     [serie setObject:kFenShiNowNameLine forKey:@"name"];
     [serie setObject:@"数值" forKey:@"label"];
     [serie setObject:data forKey:@"data"];
-    [serie setObject:kFenShiLine forKey:@"type"];
     [serie setObject:@"1" forKey:@"yAxisType"];
     [serie setObject:@"0" forKey:@"section"];
     [serie setObject:kFenShiNowColor forKey:@"color"];
     [series addObject:serie];
     [secOne addObject:serie];
-    
     [self.fenshiChart setSeries:series];
-    
     [[[self.fenshiChart sections] objectAtIndex:0] setSeries:secOne];
 }
 
 -(void)setOptions:(NSDictionary *)options ForSerie:(NSMutableDictionary *)serie {
     [serie setObject:[options objectForKey:@"name"] forKey:@"name"];
     [serie setObject:[options objectForKey:@"label"] forKey:@"label"];
-    [serie setObject:[options objectForKey:@"type"] forKey:@"type"];
     [serie setObject:[options objectForKey:@"yAxis"] forKey:@"yAxis"];
     [serie setObject:[options objectForKey:@"section"] forKey:@"section"];
     [serie setObject:[options objectForKey:@"color"] forKey:@"color"];
@@ -140,34 +115,32 @@
     [self.fenshiChart clearData];
     [self.fenshiChart clearCategory];
     
-    NSMutableArray *data2 =[[NSMutableArray alloc] init];
+    NSMutableArray *records =[[NSMutableArray alloc] init];
     
     NSMutableArray *category =[[NSMutableArray alloc] init];
     
     NSArray *listArray = [[AppController shared] all];
     
-    for (int i = 0;i<listArray.count;i++) {
+    for (int i = 0; i<listArray.count; i++) {
         
         Acceleration *dic = listArray[i];
-        [category addObject:dic.timetamp];
+        
+        [category addObject:dic.time];
         
         switch (index) {
-            case 0:
-            {
-                NSArray *item1 = @[@(dic.data.x)];
-                [data2 addObject:item1];
+            case 0: {
+                NSArray *xRecords = @[@(dic.data.x)];
+                [records addObject:xRecords];
             }
                 break;
-            case 1:
-            {
-                NSArray *item1 = @[@(dic.data.y)];
-                [data2 addObject:item1];
+            case 1: {
+                NSArray *yRecords = @[@(dic.data.y)];
+                [records addObject:yRecords];
             }
                 break;
-            case 2:
-            {
-                NSArray *item1 = @[@(dic.data.z)];
-                [data2 addObject:item1];
+            case 2: {
+                NSArray *zRecords = @[@(dic.data.z)];
+                [records addObject:zRecords];
             }
                 break;
             default:
@@ -177,7 +150,7 @@
         
     }
     
-    [self.fenshiChart appendToData:data2 forName:kFenShiNowNameLine];
+    [self.fenshiChart appendToData:records forName:kFenShiNowNameLine];
     [self.fenshiChart appendToCategory:category forName:kFenShiNowNameLine];
     
     [self.fenshiChart setNeedsDisplay];

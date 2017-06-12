@@ -17,7 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AppController : NSObject
 
-@property(weak, nonatomic) id<StartController> startController;
+@property (weak, nonatomic) id<StartController> startController;
+@property (strong, nonatomic) NSDate *originDate;
 
 +(instancetype)shared;
 -(void)stopTracking;
@@ -26,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)addAccele:(CMAcceleration)data;
 -(void)addGyro:(CMRotationRate)data;
 -(NSArray<Acceleration*>*)all;
+-(NSArray<Acceleration*>*)newData;
 -(NSArray<Acceleration*>*)last10;
 -(void)commit;
 @end

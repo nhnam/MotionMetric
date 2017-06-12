@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3B41F8FB756A8A18377BC5BB /* Pods_AccelerometerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242717E0BA2A6AC5BC0751DD /* Pods_AccelerometerDemo.framework */; };
 		D822A0BB1ED9ACEE00CDD3C8 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D822A0BA1ED9ACEE00CDD3C8 /* ReportViewController.m */; };
-		D822A0BD1ED9AE1800CDD3C8 /* ScrollableGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D822A0BC1ED9AE1800CDD3C8 /* ScrollableGraphView.swift */; };
 		D822A0BF1ED9AE7B00CDD3C8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D822A0BE1ED9AE7B00CDD3C8 /* Accelerate.framework */; };
 		D848E7D41ED5832D002F53E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D848E7D31ED5832D002F53E8 /* main.m */; };
 		D848E7D71ED5832D002F53E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D848E7D61ED5832D002F53E8 /* AppDelegate.m */; };
@@ -21,8 +20,6 @@
 		D848E7F41ED59796002F53E8 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = D848E7F31ED59796002F53E8 /* AppController.m */; };
 		D848E7F61ED59C75002F53E8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D848E7F51ED59C75002F53E8 /* CoreMotion.framework */; };
 		D848E7F91ED5B1E4002F53E8 /* Acceleration.m in Sources */ = {isa = PBXBuildFile; fileRef = D848E7F81ED5B1E4002F53E8 /* Acceleration.m */; };
-		D849990B1ED9E3A300EBBEFB /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849990A1ED9E3A300EBBEFB /* Record.swift */; };
-		D849990D1EDA7B6300EBBEFB /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849990C1EDA7B6300EBBEFB /* GraphViewController.swift */; };
 		D84999101EDA854900EBBEFB /* NiceDate.m in Sources */ = {isa = PBXBuildFile; fileRef = D849990F1EDA854900EBBEFB /* NiceDate.m */; };
 		D8C8CC6F1EDD5D0F00446C28 /* ChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C8CC631EDD5D0F00446C28 /* ChartModel.m */; };
 		D8C8CC701EDD5D0F00446C28 /* EverChart.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C8CC651EDD5D0F00446C28 /* EverChart.m */; };
@@ -39,7 +36,6 @@
 		D822A0B21ED9A1E800CDD3C8 /* AccelerometerDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AccelerometerDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		D822A0B91ED9ACEE00CDD3C8 /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
 		D822A0BA1ED9ACEE00CDD3C8 /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
-		D822A0BC1ED9AE1800CDD3C8 /* ScrollableGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollableGraphView.swift; sourceTree = "<group>"; };
 		D822A0BE1ED9AE7B00CDD3C8 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		D848E7CF1ED5832D002F53E8 /* AccelerometerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccelerometerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D848E7D31ED5832D002F53E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -58,8 +54,6 @@
 		D848E7F51ED59C75002F53E8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		D848E7F71ED5B1E4002F53E8 /* Acceleration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Acceleration.h; sourceTree = "<group>"; };
 		D848E7F81ED5B1E4002F53E8 /* Acceleration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Acceleration.m; sourceTree = "<group>"; };
-		D849990A1ED9E3A300EBBEFB /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
-		D849990C1EDA7B6300EBBEFB /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		D849990E1EDA854900EBBEFB /* NiceDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NiceDate.h; sourceTree = "<group>"; };
 		D849990F1EDA854900EBBEFB /* NiceDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NiceDate.m; sourceTree = "<group>"; };
 		D8C8CC621EDD5D0F00446C28 /* ChartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartModel.h; sourceTree = "<group>"; };
@@ -133,9 +127,6 @@
 				D849990E1EDA854900EBBEFB /* NiceDate.h */,
 				D849990F1EDA854900EBBEFB /* NiceDate.m */,
 				D822A0B21ED9A1E800CDD3C8 /* AccelerometerDemo-Bridging-Header.h */,
-				D822A0BC1ED9AE1800CDD3C8 /* ScrollableGraphView.swift */,
-				D849990C1EDA7B6300EBBEFB /* GraphViewController.swift */,
-				D849990A1ED9E3A300EBBEFB /* Record.swift */,
 			);
 			path = AccelerometerDemo;
 			sourceTree = "<group>";
@@ -206,6 +197,7 @@
 				D848E7CD1ED5832D002F53E8 /* Resources */,
 				F619BDD5D4368AF94D43C231 /* [CP] Embed Pods Frameworks */,
 				35EC91967ABE234317551F7D /* [CP] Copy Pods Resources */,
+				D89A7AC51EEBB73F00E59852 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -296,6 +288,20 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		D89A7AC51EEBB73F00E59852 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 02bfb35b35cf8a8d432050b5b490bd19bd4f3544 8e85a2d60406ff4675ac4fc0005aa5ccb3307ebe5a0c703c7841f7d77a20699f";
+		};
 		F619BDD5D4368AF94D43C231 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -319,10 +325,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D848E7EE1ED58A87002F53E8 /* TrackingViewController.m in Sources */,
-				D849990D1EDA7B6300EBBEFB /* GraphViewController.swift in Sources */,
 				D8C8CC6F1EDD5D0F00446C28 /* ChartModel.m in Sources */,
 				D848E7D71ED5832D002F53E8 /* AppDelegate.m in Sources */,
-				D849990B1ED9E3A300EBBEFB /* Record.swift in Sources */,
 				D8C8CC701EDD5D0F00446C28 /* EverChart.m in Sources */,
 				D84999101EDA854900EBBEFB /* NiceDate.m in Sources */,
 				D848E7F41ED59796002F53E8 /* AppController.m in Sources */,
@@ -330,7 +334,6 @@
 				D8C8CC731EDD5D0F00446C28 /* Section.m in Sources */,
 				D8C8CC741EDD5D0F00446C28 /* YAxis.m in Sources */,
 				D8C8CC721EDD5D0F00446C28 /* EverLineModel.m in Sources */,
-				D822A0BD1ED9AE1800CDD3C8 /* ScrollableGraphView.swift in Sources */,
 				D848E7F91ED5B1E4002F53E8 /* Acceleration.m in Sources */,
 				D848E7D41ED5832D002F53E8 /* main.m in Sources */,
 				D848E7EB1ED58A68002F53E8 /* GetStartedViewController.m in Sources */,
@@ -467,6 +470,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7MD88PM2GZ;
 				INFOPLIST_FILE = AccelerometerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nhn.AccelerometerDemo;
 				PRODUCT_MODULE_NAME = AccelerometerDemo;
@@ -488,6 +492,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7MD88PM2GZ;
 				INFOPLIST_FILE = AccelerometerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nhn.AccelerometerDemo;
 				PRODUCT_MODULE_NAME = AccelerometerDemo;

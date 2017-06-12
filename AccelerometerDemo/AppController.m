@@ -13,7 +13,10 @@
 @property(strong, nonatomic,readonly) NSMutableArray<Acceleration*>* accelerations;
 @end
 
-@implementation AppController
+@implementation AppController {
+    long offset;
+    long count;
+}
 
 +(instancetype)shared {
     static AppController *_instance = nil;
@@ -29,6 +32,7 @@
 -(id)init {
     if(self = [super init]){
         _accelerations = [[NSMutableArray<Acceleration*> alloc] init];
+        _originDate = [NSDate date];
     }
     return self;
 }
@@ -40,7 +44,9 @@
 }
 
 -(void)restart {
-    
+    [_accelerations removeAllObjects];
+    _originDate = [NSDate date];
+    NSLog(@"Reset gyro data. %ld records. %@", _accelerations.count, _originDate);
 }
 
 -(Motion)last {
@@ -61,7 +67,7 @@
     motion.y = data.y;
     motion.z = data.z;
     acc.data = motion;
-    acc.timetamp = [NSDate date];
+    acc.timetamp = [NSDate dateWithTimeInterval:0 sinceDate:_originDate];
     [_accelerations addObject:acc];
 }
 
@@ -72,12 +78,22 @@
     motion.y = data.y;
     motion.z = data.z;
     acc.data = motion;
-    acc.timetamp = [NSDate date];
+    acc.timetamp = [NSDate dateWithTimeInterval:0 sinceDate:_originDate];
     [_accelerations addObject:acc];
 }
 
 -(NSArray<Acceleration*>*)all {
-    return _accelerations;
+    NSArray *allData = [_accelerations copy];
+    count = allData.count;
+    return allData;
+}
+
+-(NSArray<Acceleration*>*)newData {
+    NSArray *allData = [_accelerations copy];
+    count = allData.count - 1;
+    NSArray *newData = [allData subarrayWithRange:NSMakeRange(offset, count - offset)];
+    offset = allData.count - 1;
+    return newData;
 }
 
 -(NSArray<Acceleration*>*)last10 {
