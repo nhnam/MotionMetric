@@ -221,7 +221,7 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 7MD88PM2GZ;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -475,6 +475,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nhn.AccelerometerDemo;
 				PRODUCT_MODULE_NAME = AccelerometerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "fd62df8e-121f-4b3e-97ad-fdea461a2f16";
+				PROVISIONING_PROFILE_SPECIFIER = "Wild Card";
 				SWIFT_OBJC_BRIDGING_HEADER = "AccelerometerDemo/AccelerometerDemo-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -497,6 +499,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nhn.AccelerometerDemo;
 				PRODUCT_MODULE_NAME = AccelerometerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "fd62df8e-121f-4b3e-97ad-fdea461a2f16";
+				PROVISIONING_PROFILE_SPECIFIER = "Wild Card";
 				SWIFT_OBJC_BRIDGING_HEADER = "AccelerometerDemo/AccelerometerDemo-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(PROJECT_NAME)-Swift.h";
 				SWIFT_VERSION = 3.0;
