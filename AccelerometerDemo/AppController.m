@@ -44,9 +44,11 @@
 }
 
 -(void)restart {
-    [_accelerations removeAllObjects];
-    _originDate = [NSDate date];
-    NSLog(@"Reset gyro data. %ld records. %@", _accelerations.count, _originDate);
+    @synchronized (self) {
+        [_accelerations removeAllObjects];
+        _originDate = [NSDate date];
+        NSLog(@"Reset gyro data. %ld records. %@", _accelerations.count, _originDate);
+    }
 }
 
 -(Motion)last {
@@ -103,9 +105,11 @@
 }
 
 -(void)commit {
-    [[NSUserDefaults standardUserDefaults] setObject:_accelerations forKey:@"accelerations"];
-    [_accelerations removeAllObjects];
-    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"accelerations"]);
+    @synchronized (self) {
+        [[NSUserDefaults standardUserDefaults] setObject:_accelerations forKey:@"accelerations"];
+        [_accelerations removeAllObjects];
+        NSLog(@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"accelerations"]);
+    }
 }
 
 @end
