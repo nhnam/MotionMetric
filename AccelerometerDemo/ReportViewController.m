@@ -125,6 +125,10 @@
         
         Acceleration *dic = listArray[i];
         
+        if (dic == nil) {
+            continue;
+        }
+        
         [category addObject:dic.time];
         
         switch (index) {
